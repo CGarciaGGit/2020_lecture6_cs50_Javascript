@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-control" content="public">
+    <title>Colors</title>
+    <script>
+
+        // document.addEventListener('DOMContentLoaded', function () {
+
+        //     document.querySelectorAll('button').forEach(function (button) {
+        //         button.onclick = function () {
+        //             document.querySelector('#hello').style.color = button.dataset.color;
+        //         }
+
+
+
+
+        //     })
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelector('select').onchange = function () {
+                document.querySelector('#hello').style.color = this.value;
+            }
+        });
+        
+
+
+            // Change font color to red
+            //  document.querySelector('#red').onclick = function () {
+            //      document.querySelector('#hello').style.color = 'red';
+            //   }
+
+            // Change font color to blue
+            //  document.querySelector('#blue').onclick = function () {
+            //      document.querySelector('#hello').style.color = 'blue';
+            //  }
+
+            // Change font color to green
+            //  document.querySelector('#green').onclick = function () {
+            //      document.querySelector('#hello').style.color = 'green';
+            //  }
+
+       
+
+    </script>
+</head>
+<body>
+    <h1 id="hello">Hello!</h1>
+    <select>
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
+</body>
+</html>
