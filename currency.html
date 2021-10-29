@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Currency Exchanger</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () { 
+
+            document.querySelector('form').onsubmit = function () { 
+
+                fetch('https://api.exchangeratesapi.io/latest?base=USD')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+
+                        const currency = document.querySelector('#currency').value;
+                        const error1 = data.error[currency];
+
+                        if (error1 !== undefined) {
+                            document.querySelector('#result').innerHTML = `error de pagina: ${error1} `;
+
+                        } else {
+                            document.querySelector('#result').innerHTML = 'Invalido'
+                        }
+                        //const error1 = data.error.info;
+                        // document.querySelector('body').innerHTML = `error de pagina: ${error1} `;
+
+
+                    })
+                    .catch(error => {
+                        console.log('Error', error);
+                    });
+                return false;
+            };
+
+
+                //console.log(data);
+                //return false;
+         });
+
+        
+        
+
+    </script>
+</head>
+<body>
+    <form>
+        <input id="currency" placeholder="Currency" type="text" />
+        <input type="submit" value="Convert" />
+    </form>
+    <div id="result">
+
+    </div>
+</body>
+</html>
